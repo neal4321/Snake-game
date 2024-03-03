@@ -1,5 +1,7 @@
 from turtle import Screen, Turtle
 import time
+
+import score
 import snake as s
 import food as f
 
@@ -27,14 +29,16 @@ def right_turn():
 
 
 screen.listen()
-screen.onkey(key="a", fun=left_turn)
-screen.onkey(key="d", fun=right_turn)
+screen.onkey(key="Left", fun=left_turn)
+screen.onkey(key="Right", fun=right_turn)
 game_in_progress = True
 while game_in_progress:
     speed = s.snake_speed()
     f.check_food()
     turn_hold = False
-    game_in_progress = s.move()
+    if not s.move():
+        score.game_over()
+        game_in_progress = False
     screen.update()
     time.sleep(speed)
 
