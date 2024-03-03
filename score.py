@@ -22,4 +22,9 @@ def update_score(score):
     score_turtle.write("Score: {}".format(score), align="center", font=("Courier", 24, "normal"))
 
 
+def game_over():
+    score_turtle.goto(0, 0)
+    score_turtle.write("Game Over!!", align="center", font=("Courier", 30, "normal"))
+
+
 update_score(score)
