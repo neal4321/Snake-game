@@ -42,11 +42,10 @@ def move():
 
 
 def check_object_collision():
-    for segment_check in snake:
-        if segment_check != snake[0]:
-            distance = snake[0].distance(segment_check)
-            if distance < 1:
-                return False, True
+    for segment_check in snake[1:]:
+        distance = snake[0].distance(segment_check)
+        if distance < 1:
+            return False, True
     for food_check in food:
         food_distance = snake[0].distance(food_check)
         if food_distance < 1:
